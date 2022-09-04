@@ -1,9 +1,10 @@
+#include "imgui.h"
 
-
-class MainWindow {
+class GuiMain {
 public:
-  int y;
+  GuiMain();
+  void Draw(bool *stay_open);
+  ~GuiMain();
 
 private:
-  int x;
 };

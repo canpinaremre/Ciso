@@ -1,1 +1,1 @@
-powershell "cmake build; cmake --build build; Start-Process -WorkingDirectory ./bin ./bin/Ciso.exe"
+powershell "Start-Process -WorkingDirectory ./bin ./bin/Ciso.exe"
