@@ -25,21 +25,21 @@ set(project_include_dirs
 	"src/drivers"
 	"lib/ImGui"
 	"lib/ImPlot"
-	"lib/SDL/include/SDL2"
+	"lib/GLFW"
 	)
 
 # project link directories
 set(project_link_dirs
 	"lib/SDL/lib"
+	"lib/GLFW"
 	)
 
 # project link libraries
 set(project_link_libraries
 	"SetupAPI"
 	"Ws2_32"
-	"SDL2"
-	"SDL2main"
 	"opengl32"
+	"GLFW3"
 	)
 
 # set include directories

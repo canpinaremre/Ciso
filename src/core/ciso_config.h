@@ -1,0 +1,3 @@
+#define CISO_VERSION_MAJOR (0)
+#define CISO_VERSION_MINOR (1)
+#define CISO_VERSION_PATCH (0)
