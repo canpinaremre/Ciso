@@ -7,15 +7,22 @@
 #include <thread>
 #include <windows.h>
 
-class CISO {
+#define START_AND_DETACH_THREAD(x)                                             \
+  {                                                                            \
+    std::thread t([&]() { x; });                                               \
+    t.detach();                                                                \
+  }
 
+class CISO {
 public:
   enum { OK, FAIL };
 
 public:
   int open_file();
+  int save_file();
+  int save_as_file();
 
 private:
-  PcapReader pcap_reader;
-  FileDialog file_dialog;
+  PcapReader m_pcap_reader;
+  FileDialog m_file_dialog;
 };

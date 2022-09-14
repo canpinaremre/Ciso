@@ -10,14 +10,13 @@ void GuiMain::MenuBar() {
   if (ImGui::BeginMenuBar()) {
     if (ImGui::BeginMenu("File")) {
       if (ImGui::MenuItem("Open", "Ctrl+O")) {
-
-        std::thread t([&]() { ciso.open_file(); });
-
-        t.detach();
+        START_AND_DETACH_THREAD(ciso.open_file());
       }
       if (ImGui::MenuItem("Save", "Ctrl+S")) {
+        START_AND_DETACH_THREAD(ciso.save_file());
       }
-      if (ImGui::MenuItem("Save As")) {
+      if (ImGui::MenuItem("Save As", "Ctrl+Shift+S")) {
+        START_AND_DETACH_THREAD(ciso.save_as_file());
       }
       if (ImGui::MenuItem("Export")) {
       }
@@ -87,8 +86,22 @@ void GuiMain::Draw(bool *stay_open) {
                    ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_MenuBar);
 
   MenuBar();
-
-  ImGui::Text("Welcome to Ciso!");
+  static int i = 0;
+  ImGui::Text("Welcome to Ciso! %d", i++);
   ImGui::End();
   ImGui::PopStyleVar();
+
+  if (ImGui::IsKeyDown(ImGuiKey_ModCtrl) && ImGui::IsKeyDown(ImGuiKey_O)) {
+    START_AND_DETACH_THREAD(ciso.open_file());
+  }
+
+  if (ImGui::IsKeyDown(ImGuiKey_ModCtrl) && ImGui::IsKeyDown(ImGuiKey_S)) {
+    START_AND_DETACH_THREAD(ciso.save_file());
+  }
+
+  if (ImGui::IsKeyDown(ImGuiKey_ModCtrl) && ImGui::IsKeyDown(ImGuiKey_S) &&
+      ImGui::IsKeyDown(ImGuiKey_LeftShift)) {
+    // TODO: shift catched by another app
+    START_AND_DETACH_THREAD(ciso.save_as_file());
+  }
 }
