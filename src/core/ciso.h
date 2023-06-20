@@ -23,9 +23,20 @@ public:
   int open_file(std::string path  = std::string());
   int save_file();
   int save_as_file();
-  int create_cpp_header(std::string file_name);
+  
   std::string toUpperCase(const std::string& str);
+
+  // C/C++ Functions
+  std::string len_to_uint_string(std::string len);
+  unsigned int type_to_size(std::string type);
   std::string type_to_c(std::string type);
+
+  // C++ Functions
+  int create_cpp_header(std::string file_name);
+  void recursive_node_cpp(pugi::xml_node node, int indentation, std::ofstream& outputFile, unsigned int rez_cnt);
+
+  // C Functions
+  int create_c_header(std::string file_name);
 
 private:
   FileDialog m_file_dialog;

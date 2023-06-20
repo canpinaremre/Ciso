@@ -1,7 +1,9 @@
-<ICD name="HELP" 
-	desc="Buraya yazdığım her şey AKD tanımı anlamına gelir.
+<ICD name="ICD_File_Name" desc= "AKD tanımı buraya yazılır."/>
+
+<MSG name="HELP" 
+	desc="Buraya yazdığım her şey mesaj tanımı anlamına gelir.
 	Alt satıra geçilebilir.
-	Node adının 'ICD' olması gerekir.">
+	Node adının 'MSG' olması gerekir.">
 	
 	<MessageData name="bit8_deneme" type="UINT8" desc="Örnek 8 bitlik bir alan tanımıdır."/>
 
@@ -41,4 +43,4 @@
 
 	<MessageData name="crc" type="UINT16"/>
 
-</ICD>
+</MSG>
