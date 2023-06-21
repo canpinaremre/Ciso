@@ -1,16 +1,17 @@
 #include "ciso.h"
 #include "imgui.h"
 
-class GuiMain {
-public:
-  GuiMain();
-  void Draw(bool *stay_open);
-  ~GuiMain();
+class GuiMain
+{
+  public:
+    GuiMain();
+    void Draw(bool *stay_open);
+    ~GuiMain();
 
-public:
-  void MenuBar();
+  public:
+    void MenuBar();
 
-  CISO ciso;
+    CISO ciso;
 
-private:
+  private:
 };

@@ -14,6 +14,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 # project source directories to be compiled
 set(project_source_dirs
 	"src/core"
+	"src/core/header_gen"
 	"src/drivers"
 	"lib/ImGui"
 	"lib/ImPlot"
@@ -22,6 +23,7 @@ set(project_source_dirs
 # project include directories
 set(project_include_dirs
 	"src/core"
+	"src/core/header_gen"
 	"src/drivers"
 	"lib/ImGui"
 	"lib/ImPlot"

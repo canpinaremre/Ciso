@@ -9,10 +9,19 @@
 
 	<MessageData name="my_fl" type="FLOAT" desc="Örnek Float" coef="0.5" offset="3"/>
 
-	<MessageDataArray name="double_array" type="DOUBLE" len="10" desc="Double ile oluşturulan 10 uzunluğunda bir array örneğidir."/>
+	<MessageData name="double_array" type="DOUBLE" len="10" desc="Double ile oluşturulan 10 uzunluğunda bir array örneğidir."/>
 
 	<MessageData name="tekrar_sayisi" desc="Tekrar sayısını belirtir. 'rep_src' ile işaret edilmelidir. Tekrarlı veriden önce gelmek zorundadır.
 	Belirtilmez ise 'len' sayısına bakılır. Mevcut değilse default olarak 1 tekrar kullanılır."/>
+
+
+	<MessageDataContainer name ="tekrarli_ornek" desc="Bu yapı tekrar ediyor. " 
+		rep_src="tekrar_sayisi" len="25">
+
+		<MessageData name="tekrarli_ornek"/>
+		<MessageData name="tekrarli_double" type="DOUBLE"/>
+
+	</MessageDataContainer>
 
 	<MessageDataContainer name ="struct_ornek" desc="Bu mesaj yapısı içerisinde bulunan bir yapıdır." 
 		type="Anlamsız">
@@ -25,19 +34,30 @@
 
 		<MessageBitField name="DurumBiti" type="UINT32">
 			<MessageBit name="ornek_durum" bitsize="2" desc="Default bitsize=1."/>
-			<MessageBit name="ornekbit_2" bitsize="1" desc="ornek_durum 2 bit yer kapladığı için bu bir 3. indistedir."/>
+			<MessageBit name="ornekbit_2"  desc="ornek_durum 2 bit yer kapladığı için bu bir 3. indistedir."/>
 			<MessageBit desc="32 bit içerisinde geriye kalan bitler birleştirilecek ve rezerve adını alacak."/>
-		<MessageBitField/>
+			<MessageBit desc="rez2"/>
+			<MessageBit name="my_bit" desc="bit after rez"/>
+		</MessageBitField>
+
+		<MessageBitField name="tekrarli_bitfield" type="UINT32" len="5">
+			<MessageBit name="t1" bitsize="3"/>
+			<MessageBit name="t2"/>
+			<MessageBit/>
+			<MessageBit name="t3" bitsize="10"/>
+		</MessageBitField>
 
 	</MessageDataContainer>
 
-	<MessageDataContainer name ="tekrarli_ornek" desc="Bu yapı tekrar ediyor. " 
-		rep_src="tekrar_sayisi" len="25">
-
-		<MessageData name="tekrarli_ornek"/>
-		<MessageData name="tekrarli_double" type="DOUBLE"/>
-
+	<MessageDataContainer name ="test" len="25">
+		<MessageData/>
+		<MessageData/>
 	</MessageDataContainer>
+
+	<MessageData type="INT8"/>
+	<MessageData type="INT8"/>
+
+
 
 	<MessageData name="all_properties_default" type="UINT8" coef="1" offset="0" desc="" len="1" bswap="FALSE" order="Little" rep_src=""/>
 
